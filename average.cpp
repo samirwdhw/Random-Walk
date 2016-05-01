@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#define NO_OF_RUNS 10
+#define NO_OF_RUNS 100
 #define NO_OF_LINES 100
 
 void to_string(int n, char a[]){	   //To convert number to string
@@ -72,6 +72,7 @@ int main(){
 		while(f1>>num){
 			
 			avg[i] += num;
+			i++;
 
 		}
 
@@ -79,11 +80,18 @@ int main(){
 
 	}
 
+	ofstream f2;
+
+	f2.open("result_avg.dat");
+
 	for(int i = 0; i<NO_OF_LINES; i++) {
 
 		avg[i] /= NO_OF_RUNS;
-		cout<<avg[i]<<endl;
+
+		f2<<avg[i]<<endl;
 	}
+
+	f2.close();
 
 	return 0;
 }
